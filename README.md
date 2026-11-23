@@ -67,6 +67,22 @@ Im Ordner `alpinwetter` liegen diese 8 Dateien:
 
 ---
 
+## Neu: Tippen für Details, Wetterstationen, Swix-Wachs & Schnellzugriffe
+
+- **Mehr Infos durch Antippen:** Fast alles ist antippbar – Temperatur, Stunden, Tage, Kacheln, die Rennrad-Ampel,
+  die Bekleidung und die Wachsempfehlung. Es öffnet sich ein Fenster mit Details und Verlauf.
+  Schließen: ✕, daneben tippen oder die Zurück-Geste.
+- **Wetterstationen:** Im Wetter- und im Ski-Tab steht die Karte „Messstation · live“ mit echten Messwerten
+  (Lawinenwarndienste Tirol/Südtirol/Trentino und GeoSphere Austria). Über „Station wählen“ kannst du jede Station
+  im Umkreis von 30 km nehmen (Filter „Berg ab 1500 m“), eine Station als eigenen Ort speichern oder wieder
+  „Automatisch“ wählen. Im Ski-Tab vergleicht der Wachsberater die Messung mit der Vorhersage.
+- **Swix-Wachs:** Die Empfehlung nennt Swix-Produkte (PS = Alltag, HS = schneller, TS = Rennen, F4 = unterwegs)
+  mit Bügeltemperatur und Anleitung. Die Werte stammen von den Swix-Packungsangaben (ca.).
+- **Schnellzugriffe (Android):** AlpinWetter-Symbol lange drücken → **Wetter, Rennrad, Skiwachs, Stationen**.
+  Einen Schnellzugriff gedrückt halten und auf einen freien Platz ziehen → eigenes Symbol, das AlpinWetter direkt
+  mit diesen Details öffnet. Erscheinen evtl. erst nach bis zu einem Tag, wenn Chrome die installierte App aktualisiert hat.
+  (Echte Widgets mit Live-Werten kann eine Web-App unter Android nicht anzeigen – dafür bräuchte es eine eigene Android-App.)
+
 ## Gut zu wissen
 - **„Mein Standort“:** Beim ersten Tippen nach der Erlaubnis fragen lassen und „Erlauben“ wählen.
   iPhone, falls versehentlich abgelehnt: Einstellungen → Datenschutz & Sicherheit → Ortungsdienste → Safari-Websites.
