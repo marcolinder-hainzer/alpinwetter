@@ -25,10 +25,13 @@ Der Nutzer ist kein Entwickler: auf Deutsch, einfach und Schritt für Schritt er
   `renderSki()` (Planer: `skiDayStats`/`skiScore`, Schneeart: `detectSnow`, Wachs: `waxAdvice`, Farben: `WAX`).
 - **Orte:** Bottom-Sheet (`renderSheet`), Dialog zum Speichern/Bearbeiten (`openDlg`), Geolocation.
   Favoriten-Zeilen ohne Knöpfe: wischen = `deleteFav` (Snackbar mit „Rückgängig“), lange drücken = `openDlg` (`startLongPress`).
-- **Design:** flach, klare Kanten (keine `rounded-*` außer runden Ampel-Lichtern), Haarlinien statt Schatten, Neutralfarben `zinc`.
-  Bausteine: `PANEL` (randlose Fläche in der Hauptansicht), `GRID` + `cell()` (Haarlinien-Raster), `CARD` (Kästen in Sheets),
-  `LABEL`, `SUB`, `PRESS`, `sectionTitle()` mit Akzentfarbe je Tab (`ACCENT`). Kopfzeile ohne Knöpfe (Ort + Favoriten-Punkte),
-  Tab-Indikator `#tabInd`, Snackbar `toast(msg, { label, fn })`. Darstellung `aw_theme`: null = automatisch, 'light', 'dark' (`themePref`).
+- **Design:** modern & weich (Nutzer fand die rein eckige Variante „zu eckig“ – nicht wieder eckig machen):
+  abgerundete Karten mit Abstand zum Rand (`PANEL`/`GRID` = `rounded-[1.75rem]`, Hero `rounded-[2rem]` mit sanftem Verlauf
+  `heroColor`), Haarlinien nur innerhalb der Karten, Neutralfarben `zinc`, Pillen-Umschalter (Box `p-1 gap-1 rounded-full bg-zinc-100`,
+  aktiv `rounded-full bg-white shadow-sm`), runde Chips/Punkte/Knöpfe, Sheets `rounded-t-[1.75rem]`, Feder-Easing `cubic-bezier(.32,.72,0,1)`.
+  Bausteine: `PANEL`, `GRID` + `cell()`, `CARD` (Kästen in Sheets), `LABEL`, `SUB`, `PRESS`, `sectionTitle()` mit Akzentpunkt je Tab (`ACCENT`).
+  Kopfzeile ohne Knöpfe (Ort + Favoriten-Punkte), Tab-Leiste mit gleitender Material-3-Pille (`#tabInd` > `#tabPill`, Farben `TAB_STYLE`),
+  Snackbar `toast(msg, { label, fn })`. Darstellung `aw_theme`: null = automatisch, 'light', 'dark' (`themePref`).
 - **Gesten** (Abschnitt „Gesten“, Touch-Events auf `document`): Tab wischen (`switchTab`), Ziehen zum Aktualisieren (`#ptr`, `doRefresh`),
   Ort wischen (`cycleLoc`), Sheets nach unten wischen, Stunde/Tag im Info-Sheet wischen (`data-swipe`), Favoriten wischen/lange drücken.
   Elemente mit `data-scroll` (horizontale Leisten) und Eingabefelder sind ausgenommen, ebenso 22 px am Bildschirmrand (Android-Zurück).
@@ -69,6 +72,6 @@ Neue oder geänderte Tailwind-Klassen wirken erst, nachdem das CSS neu gebaut wu
    blockiert sein: dann die API mit `route()` und Daten im Open-Meteo-Format mocken und das dem Nutzer offen sagen.
    Für echte Netzabrufe im Browser `proxy: { server: process.env.HTTPS_PROXY }` setzen (Port ändert sich je Sitzung).
    Gesten mit `hasTouch: true` und CDP `Input.dispatchTouchEvent` (touchStart/touchMove/touchEnd) testen.
-3. In `sw.js` die Cache-Version erhöhen (`alpinwetter-v3` → `v4` …), damit die Handys die neue Version laden.
+3. In `sw.js` die Cache-Version erhöhen (`alpinwetter-v4` → `v5` …), damit die Handys die neue Version laden.
 4. Nach Rückfrage committen und nach `main` pushen; GitHub Pages veröffentlicht in 1–2 Minuten.
 5. Dem Nutzer sagen: App auf dem Handy öffnen, ganz schließen, neu öffnen → neue Version.

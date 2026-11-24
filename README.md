@@ -73,7 +73,7 @@ Im Ordner `alpinwetter` liegen diese 8 Dateien:
 |---|---|
 | **Seitlich über den Inhalt wischen** | Wechsel zwischen Wetter, Rennrad und Ski & Wachs (oder unten auf den Tab tippen) |
 | **Oben nach unten ziehen** | Daten aktualisieren |
-| **Über den Ortsnamen oben wischen** | Nächster / voriger Favorit (die kleinen Quadrate zeigen, wo du bist) |
+| **Über den Ortsnamen oben wischen** | Nächster / voriger Favorit (die kleinen Punkte zeigen, wo du bist) |
 | **Ortsnamen antippen** | Orte-Liste: suchen, Standort, Favoriten, Darstellung (Automatisch / Hell / Dunkel) |
 | **Favorit zur Seite wischen** | Löschen – mit „Rückgängig“ in der Leiste unten |
 | **Favorit lange drücken** | Name / Höhe bearbeiten |
@@ -105,7 +105,7 @@ bleibt für die Zurück-Geste von Android reserviert.
   iPhone, falls versehentlich abgelehnt: Einstellungen → Datenschutz & Sicherheit → Ortungsdienste → Safari-Websites.
 - **Favoriten** werden nur auf dem jeweiligen Handy gespeichert (nicht bei GitHub).
 - **Updates einspielen:** geänderte Dateien wieder per „Add file“ → „Upload files“ hochladen (gleiche Namen überschreiben),
-  vorher in `sw.js` die Version erhöhen (z. B. `alpinwetter-v3` → `alpinwetter-v4`).
+  vorher in `sw.js` die Version erhöhen (z. B. `alpinwetter-v4` → `alpinwetter-v5`).
   Auf dem Handy die App dann zweimal öffnen – beim ersten Start wird die neue Version im Hintergrund geladen.
 
 ## Wenn etwas nicht klappt
