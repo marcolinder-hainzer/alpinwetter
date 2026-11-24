@@ -7,7 +7,9 @@ Der Nutzer ist kein Entwickler: auf Deutsch, einfach und Schritt für Schritt er
 
 ## Dateien (alle im Root, keine Unterordner)
 - `index.html` – die komplette App: HTML + inline JS + **vorkompiliertes Tailwind-CSS** in `<style id="tw">`
-- `sw.js` – Service Worker (App-Shell-Cache, stale-while-revalidate; API-Aufrufe gehen direkt ans Netz)
+- `sw.js` – Service Worker: App-Seite „Netz zuerst“ (3,5 s Zeitlimit, sonst Cache), Icons/Manifest stale-while-revalidate,
+  alle Downloads mit `cache: 'reload'`/`'no-cache'` am Browser-Cache vorbei (GitHub Pages: max-age=600 → sonst landete
+  nach Updates die alte Version im Cache). API-Aufrufe gehen direkt ans Netz. Antwortet auf `postMessage('version')` mit `{ cache }`.
 - `manifest.webmanifest` – PWA-Manifest (relative Pfade, `start_url`/`scope` = `./`, `shortcuts` = Schnellzugriffe per Deep-Link)
 - `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`
 - `README.md` – Installationsanleitung für den Nutzer (Deutsch)
@@ -72,6 +74,9 @@ Neue oder geänderte Tailwind-Klassen wirken erst, nachdem das CSS neu gebaut wu
    blockiert sein: dann die API mit `route()` und Daten im Open-Meteo-Format mocken und das dem Nutzer offen sagen.
    Für echte Netzabrufe im Browser `proxy: { server: process.env.HTTPS_PROXY }` setzen (Port ändert sich je Sitzung).
    Gesten mit `hasTouch: true` und CDP `Input.dispatchTouchEvent` (touchStart/touchMove/touchEnd) testen.
-3. In `sw.js` die Cache-Version erhöhen (`alpinwetter-v4` → `v5` …), damit die Handys die neue Version laden.
+3. Version erhöhen – **beide** zusammen: `CACHE = 'alpinwetter-vN'` in `sw.js` und `APP_BUILD = N` in `index.html`
+   (Anzeige „Version N · Datum“ unten in der App und in der Orte-Liste; `APP_VERSION` enthält das Datum).
+   Die App prüft beim Zurückkehren in den Vordergrund und beim Ziehen-zum-Aktualisieren auf Updates (`checkAppUpdate`)
+   und lädt nur neu, wenn der neue Service Worker eine andere Version meldet.
 4. Nach Rückfrage committen und nach `main` pushen; GitHub Pages veröffentlicht in 1–2 Minuten.
-5. Dem Nutzer sagen: App auf dem Handy öffnen, ganz schließen, neu öffnen → neue Version.
+5. Dem Nutzer sagen: App auf dem Handy öffnen (ggf. ganz schließen und neu öffnen) → neue Version; prüfen über die Versionsnummer unten.

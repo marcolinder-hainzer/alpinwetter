@@ -105,8 +105,9 @@ bleibt für die Zurück-Geste von Android reserviert.
   iPhone, falls versehentlich abgelehnt: Einstellungen → Datenschutz & Sicherheit → Ortungsdienste → Safari-Websites.
 - **Favoriten** werden nur auf dem jeweiligen Handy gespeichert (nicht bei GitHub).
 - **Updates einspielen:** geänderte Dateien wieder per „Add file“ → „Upload files“ hochladen (gleiche Namen überschreiben),
-  vorher in `sw.js` die Version erhöhen (z. B. `alpinwetter-v4` → `alpinwetter-v5`).
-  Auf dem Handy die App dann zweimal öffnen – beim ersten Start wird die neue Version im Hintergrund geladen.
+  vorher in `sw.js` die Version erhöhen (z. B. `alpinwetter-v5` → `alpinwetter-v6`) und in `index.html` `APP_BUILD` gleich setzen.
+  Auf dem Handy die App öffnen – sie lädt neue Versionen automatisch. Welche Version läuft, steht ganz unten in der App
+  und in der Orte-Liste („AlpinWetter · Version …“).
 
 ## Wenn etwas nicht klappt
 | Problem | Lösung |
