@@ -24,6 +24,15 @@ Der Nutzer ist kein Entwickler: auf Deutsch, einfach und Schritt für Schritt er
 - **Tabs:** `renderWeather()`, `renderBike()` (Ampel: `rateBike`, Bekleidung: `clothing`, Fahrt-Windchill: `rideChill`),
   `renderSki()` (Planer: `skiDayStats`/`skiScore`, Schneeart: `detectSnow`, Wachs: `waxAdvice`, Farben: `WAX`).
 - **Orte:** Bottom-Sheet (`renderSheet`), Dialog zum Speichern/Bearbeiten (`openDlg`), Geolocation.
+  Favoriten-Zeilen ohne Knöpfe: wischen = `deleteFav` (Snackbar mit „Rückgängig“), lange drücken = `openDlg` (`startLongPress`).
+- **Design:** flach, klare Kanten (keine `rounded-*` außer runden Ampel-Lichtern), Haarlinien statt Schatten, Neutralfarben `zinc`.
+  Bausteine: `PANEL` (randlose Fläche in der Hauptansicht), `GRID` + `cell()` (Haarlinien-Raster), `CARD` (Kästen in Sheets),
+  `LABEL`, `SUB`, `PRESS`, `sectionTitle()` mit Akzentfarbe je Tab (`ACCENT`). Kopfzeile ohne Knöpfe (Ort + Favoriten-Punkte),
+  Tab-Indikator `#tabInd`, Snackbar `toast(msg, { label, fn })`. Darstellung `aw_theme`: null = automatisch, 'light', 'dark' (`themePref`).
+- **Gesten** (Abschnitt „Gesten“, Touch-Events auf `document`): Tab wischen (`switchTab`), Ziehen zum Aktualisieren (`#ptr`, `doRefresh`),
+  Ort wischen (`cycleLoc`), Sheets nach unten wischen, Stunde/Tag im Info-Sheet wischen (`data-swipe`), Favoriten wischen/lange drücken.
+  Elemente mit `data-scroll` (horizontale Leisten) und Eingabefelder sind ausgenommen, ebenso 22 px am Bildschirmrand (Android-Zurück).
+  Gipfelhöhe per Schieberegler `#bergRange` (800–4000 m).
 - **Wachs:** Swix (fluorfrei): `WAX` = PS5 Türkis/PS6 Blau/PS7 Violett/PS8 Rot/PS10 Gelb, Grenzen −12/−7/−3/+2 °C (`waxIdx`),
   Produktstufen in `waxProducts` (PS/HS/TS/F4).
 - **Messstationen:** `static.avalanche.report/weather_stations/stations.geojson` (LWD Tirol/Südtirol/Trentino, Wind km/h,
@@ -58,6 +67,8 @@ Neue oder geänderte Tailwind-Klassen wirken erst, nachdem das CSS neu gebaut wu
 1. Inline-Scripts mit `node --check` prüfen (Scripts aus `index.html` extrahieren).
 2. Im Browser testen (Playwright/Chromium ist in Cloud-Sessions vorinstalliert). Open-Meteo kann in der Sandbox
    blockiert sein: dann die API mit `route()` und Daten im Open-Meteo-Format mocken und das dem Nutzer offen sagen.
-3. In `sw.js` die Cache-Version erhöhen (`alpinwetter-v2` → `v3` …), damit die Handys die neue Version laden.
+   Für echte Netzabrufe im Browser `proxy: { server: process.env.HTTPS_PROXY }` setzen (Port ändert sich je Sitzung).
+   Gesten mit `hasTouch: true` und CDP `Input.dispatchTouchEvent` (touchStart/touchMove/touchEnd) testen.
+3. In `sw.js` die Cache-Version erhöhen (`alpinwetter-v3` → `v4` …), damit die Handys die neue Version laden.
 4. Nach Rückfrage committen und nach `main` pushen; GitHub Pages veröffentlicht in 1–2 Minuten.
 5. Dem Nutzer sagen: App auf dem Handy öffnen, ganz schließen, neu öffnen → neue Version.

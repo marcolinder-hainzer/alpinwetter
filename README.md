@@ -67,13 +67,30 @@ Im Ordner `alpinwetter` liegen diese 8 Dateien:
 
 ---
 
+## Bedienung mit Gesten (wie auf Android)
+
+| Geste | Was passiert |
+|---|---|
+| **Seitlich über den Inhalt wischen** | Wechsel zwischen Wetter, Rennrad und Ski & Wachs (oder unten auf den Tab tippen) |
+| **Oben nach unten ziehen** | Daten aktualisieren |
+| **Über den Ortsnamen oben wischen** | Nächster / voriger Favorit (die kleinen Quadrate zeigen, wo du bist) |
+| **Ortsnamen antippen** | Orte-Liste: suchen, Standort, Favoriten, Darstellung (Automatisch / Hell / Dunkel) |
+| **Favorit zur Seite wischen** | Löschen – mit „Rückgängig“ in der Leiste unten |
+| **Favorit lange drücken** | Name / Höhe bearbeiten |
+| **Fenster nach unten wischen** | Schließen (oder daneben tippen bzw. Zurück-Geste) |
+| **Im Stunden-/Tagesfenster seitlich wischen** | Nächste / vorige Stunde bzw. Tag |
+| **Gipfelhöhe** | Im Ski-Tab mit dem Schieberegler einstellen |
+
+Wischen in den Leisten (Stunden, Startzeit, Skitage) scrollt die Leiste selbst. Wischen ganz am Bildschirmrand
+bleibt für die Zurück-Geste von Android reserviert.
+
 ## Neu: Tippen für Details, Wetterstationen, Swix-Wachs & Schnellzugriffe
 
 - **Mehr Infos durch Antippen:** Fast alles ist antippbar – Temperatur, Stunden, Tage, Kacheln, die Rennrad-Ampel,
   die Bekleidung und die Wachsempfehlung. Es öffnet sich ein Fenster mit Details und Verlauf.
-  Schließen: ✕, daneben tippen oder die Zurück-Geste.
+  Schließen: nach unten wischen, daneben tippen oder die Zurück-Geste.
 - **Wetterstationen:** Im Wetter- und im Ski-Tab steht die Karte „Messstation · live“ mit echten Messwerten
-  (Lawinenwarndienste Tirol/Südtirol/Trentino und GeoSphere Austria). Über „Station wählen“ kannst du jede Station
+  (Lawinenwarndienste Tirol/Südtirol/Trentino und GeoSphere Austria). Über „Wechseln“ kannst du jede Station
   im Umkreis von 30 km nehmen (Filter „Berg ab 1500 m“), eine Station als eigenen Ort speichern oder wieder
   „Automatisch“ wählen. Im Ski-Tab vergleicht der Wachsberater die Messung mit der Vorhersage.
 - **Swix-Wachs:** Die Empfehlung nennt Swix-Produkte (PS = Alltag, HS = schneller, TS = Rennen, F4 = unterwegs)
@@ -88,7 +105,7 @@ Im Ordner `alpinwetter` liegen diese 8 Dateien:
   iPhone, falls versehentlich abgelehnt: Einstellungen → Datenschutz & Sicherheit → Ortungsdienste → Safari-Websites.
 - **Favoriten** werden nur auf dem jeweiligen Handy gespeichert (nicht bei GitHub).
 - **Updates einspielen:** geänderte Dateien wieder per „Add file“ → „Upload files“ hochladen (gleiche Namen überschreiben),
-  vorher in `sw.js` die Version erhöhen (`alpinwetter-v1` → `alpinwetter-v2`).
+  vorher in `sw.js` die Version erhöhen (z. B. `alpinwetter-v3` → `alpinwetter-v4`).
   Auf dem Handy die App dann zweimal öffnen – beim ersten Start wird die neue Version im Hintergrund geladen.
 
 ## Wenn etwas nicht klappt

@@ -1,7 +1,7 @@
 /* AlpinWetter – Service Worker
    App-Dateien werden gecacht, damit die App auch ohne Netz startet.
    Wetterdaten (Open-Meteo) lädt die App selbst und speichert die letzten Daten im localStorage. */
-const CACHE = 'alpinwetter-v2';
+const CACHE = 'alpinwetter-v3';
 const SHELL = [
   './',
   './index.html',
