@@ -67,6 +67,16 @@ Im Ordner `alpinwetter` liegen diese 8 Dateien:
 
 ---
 
+## Neu in Version 6
+
+- **Himmel-Tab:** Goldene & Blaue Stunde, Chance auf Abend-/Morgenrot und Alpenglühen, Mondphase mit Auf-/Untergang und
+  Supermond, Sternenhimmel heute Nacht und kommende Ereignisse (Sternschnuppen, Sonnenwenden, Finsternisse).
+- **Einstellungen** (Zahnrad oben rechts): Bereiche ein-/ausblenden, Start-Bereich, Wind-Einheit (km/h, m/s, Knoten, Beaufort),
+  gefühlte Temperaturen, persönliches Rad-Tempo, Kälte- und Windempfinden, bevorzugte Swix-Linie, Messstationen & Umkreis,
+  Darstellung. So kann jede Person AlpinWetter an ihre Vorlieben anpassen – gespeichert nur auf dem eigenen Handy.
+- **Gefühlte Temperaturen** in der Stundenleiste, der 7-Tage-Übersicht, bei Rad, Ski und Messstationen.
+- **„Mein Standort“** zeigt jetzt den Ortsnamen (über OpenStreetMap) statt Koordinaten.
+
 ## Bedienung mit Gesten (wie auf Android)
 
 | Geste | Was passiert |

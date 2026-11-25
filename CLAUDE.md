@@ -20,12 +20,23 @@ Der Nutzer ist kein Entwickler: auf Deutsch, einfach und Schritt für Schritt er
   Bei HTTP 400 wird ohne die Zusatzvariablen (`HOURLY_EXTRA`) erneut geladen.
 - **Cache:** Antworten im `localStorage` (`aw_cache_v1`, max. 8 Einträge, TTL 10 Min.); bei Fehlern werden die
   gespeicherten Daten mit Hinweis angezeigt.
-- **Zustand / localStorage:** `aw_locations`, `aw_selected`, `aw_temp`, `aw_tab`, `aw_theme`, `aw_skimode`, `aw_snowtype`, `aw_ridedur`, `aw_st_v1`, `aw_gsmeta_v1`.
+- **Zustand / localStorage:** `aw_locations`, `aw_selected`, `aw_temp`, `aw_tab`, `aw_theme`, `aw_skimode`, `aw_snowtype`, `aw_ridedur`, `aw_st_v1`, `aw_gsmeta_v1`, `aw_prefs`.
+- **Einstellungen** (`prefs`, `PREF_DEFAULTS`, Sheet `INFO.settings`, Zahnrad oben rechts): Tabs ein/aus (`prefs.tabs`, `TABS = visibleTabs()`,
+  Wetter immer an), Start-Tab, Wind-Einheit (`fW()`/`windVal()`/`windU()` – intern immer km/h), gefühlte Temp. in Listen (`prefs.feels`),
+  Rad: Tempo (`bikeSpeed` = Fahrtwind), Kälteempfinden (`coldFeel` ±3 °C auf Ampel/Bekleidung), Windtoleranz (`windTol` × Grenzen),
+  Swix-Linie (`swixLine()`), Messstationen an/aus + Umkreis (`stRadius`), „Mein Standort“ beim Öffnen aktualisieren (`geoAuto`).
+  Änderungen → `applyPrefs(k)`. Neue Windanzeigen immer über `fW()` schreiben, nie fest „km/h“.
 - **Höhen:** `mainElev(loc)` (Wetter/Rad) = Höhenangabe des Favoriten, sonst Talhöhe; Ski-Tab: `talElev` / `bergElev`
   (über den API-Parameter `elevation`).
+- **Tab Himmel** (`renderSky`, `skyData`): Astronomie ohne Internet (`sunPos`, `moonPos`, `moonIllum`, `sunDay`, `moonDay`,
+  Mondphasen nach Meeus `moonPhaseJDE` – geprüft gegen offizielle Termine, `moonDistance` für Supermond < 365 000 km,
+  `seasons`), Abend-/Morgenrot-Schätzung `glow()` aus `cloud_cover_low/mid/high`, `nightSky()`, Ereignisse `skyEvents()`
+  (Meteorströme `METEORS`, Finsternisse `ECLIPSES` – Liste für Mitteleuropa, bei Bedarf ergänzen). Zeiten via `hmTz()` in der
+  Zeitzone des Ortes (Open-Meteo `timezone`). Info-Sheets: skylight, moon, stars, skyevents.
 - **Tabs:** `renderWeather()`, `renderBike()` (Ampel: `rateBike`, Bekleidung: `clothing`, Fahrt-Windchill: `rideChill`),
   `renderSki()` (Planer: `skiDayStats`/`skiScore`, Schneeart: `detectSnow`, Wachs: `waxAdvice`, Farben: `WAX`).
-- **Orte:** Bottom-Sheet (`renderSheet`), Dialog zum Speichern/Bearbeiten (`openDlg`), Geolocation.
+- **Orte:** Bottom-Sheet (`renderSheet`), Dialog zum Speichern/Bearbeiten (`openDlg`), Geolocation (`setGpsLoc`).
+  „Mein Standort“ bekommt den Ortsnamen per OpenStreetMap/Nominatim (`placeName`, `fillPlaceName`, Quellenangabe im Footer).
   Favoriten-Zeilen ohne Knöpfe: wischen = `deleteFav` (Snackbar mit „Rückgängig“), lange drücken = `openDlg` (`startLongPress`).
 - **Design:** modern & weich (Nutzer fand die rein eckige Variante „zu eckig“ – nicht wieder eckig machen):
   abgerundete Karten mit Abstand zum Rand (`PANEL`/`GRID` = `rounded-[1.75rem]`, Hero `rounded-[2rem]` mit sanftem Verlauf
@@ -37,7 +48,9 @@ Der Nutzer ist kein Entwickler: auf Deutsch, einfach und Schritt für Schritt er
 - **Gesten** (Abschnitt „Gesten“, Touch-Events auf `document`): Tab wischen (`switchTab`), Ziehen zum Aktualisieren (`#ptr`, `doRefresh`),
   Ort wischen (`cycleLoc`), Sheets nach unten wischen, Stunde/Tag im Info-Sheet wischen (`data-swipe`), Favoriten wischen/lange drücken.
   Elemente mit `data-scroll` (horizontale Leisten) und Eingabefelder sind ausgenommen, ebenso 22 px am Bildschirmrand (Android-Zurück).
-  Gipfelhöhe per Schieberegler `#bergRange` (800–4000 m).
+  Gipfelhöhe per Schieberegler `#bergRange` (800–4000 m). touchmove/touchend hängen am berührten Element (nicht am document),
+  und während einer Geste wird nicht neu gezeichnet (`renderPending`/`flushRender`) – sonst gehen Gesten bei Daten-Updates verloren.
+  Keine sichtbaren Bedien-Hinweise („wischen“, „antippen“) in der Oberfläche – Nutzerwunsch; Gestenhilfe nur in den Einstellungen.
 - **Wachs:** Swix (fluorfrei): `WAX` = PS5 Türkis/PS6 Blau/PS7 Violett/PS8 Rot/PS10 Gelb, Grenzen −12/−7/−3/+2 °C (`waxIdx`),
   Produktstufen in `waxProducts` (PS/HS/TS/F4).
 - **Messstationen:** `static.avalanche.report/weather_stations/stations.geojson` (LWD Tirol/Südtirol/Trentino, Wind km/h,
