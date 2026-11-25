@@ -20,7 +20,7 @@
   "shortcuts": [
     { "name": "Wetter", "short_name": "Wetter", "description": "Aktuelles Wetter und 7-Tage-Übersicht", "url": "./?tab=wetter", "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] },
     { "name": "Rennrad-Ampel", "short_name": "Rennrad", "description": "Ampel, Grenzwerte und Bekleidung", "url": "./?tab=rad&info=bike", "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] },
-    { "name": "Skiwachs (Swix)", "short_name": "Skiwachs", "description": "Swix-Wachsempfehlung für heute", "url": "./?tab=ski&info=wax", "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Skiwachs", "short_name": "Skiwachs", "description": "Wachsempfehlung für heute", "url": "./?tab=ski&info=wax", "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] },
     { "name": "Wetterstationen", "short_name": "Stationen", "description": "Messstationen in der Nähe", "url": "./?tab=ski&info=stations&mode=ski", "icons": [{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }] }
   ]
 }

@@ -67,6 +67,21 @@ Im Ordner `alpinwetter` liegen diese 8 Dateien:
 
 ---
 
+## Neu in Version 7
+
+- **Aussehen & Anordnung** (Zahnrad → ganz oben): Akzentfarbe (je Bereich oder eine feste Farbe), Kopfbereich
+  (nach Wetter, Akzent, Dunkel, Bunt), Ecken (kantig bis extra rund), Kacheln (Rahmen, Schatten, Glas),
+  Hintergrund (Standard, Hell, Warm, Kühl, Verlauf oder **eigenes Foto**), Muster (Punkte, Raster, Linien, Höhenlinien,
+  Berge, Sterne, Wellen), Schriftgröße, Kacheln pro Reihe, Abstände, großer oder kompakter Kopfbereich.
+  Unter „Anordnung & Inhalte“ lässt sich für jeden Bereich die **Reihenfolge der Kacheln ändern** und jede Kachel **ein- oder ausblenden**.
+- **Weitere Wachsmarken:** Swix, Toko, Holmenkol oder markenunabhängig (nach Wachsfarbe) – einstellbar unter
+  Einstellungen → Ski & Wachs. Empfehlung, Farbskala, Produkte und Farbtabelle passen sich der Marke an.
+- **Polarlicht-Chance** im Himmel-Tab für heute Nacht, morgen und übermorgen – aus der Weltraumwetter-Vorhersage (NOAA),
+  der Lage deines Orts, Dunkelheit, Wolken und Mondlicht. Mit Kp-Diagramm und Tipps.
+- **Himmelsfarben:** Abend- und Morgenrot, Alpenglühen, Venusgürtel, Regenbogen, Halo & Nebensonnen und
+  **Saharastaub** (milchig-gelber Himmel, gelber Schnee) – je mit Chance „kaum / möglich / gut / sehr gut“.
+- **Ortsname** von „Mein Standort“ korrigiert: es wird jetzt die Gemeinde angezeigt (z. B. „Jenbach“ statt eines Ortsteils).
+
 ## Neu in Version 6
 
 - **Himmel-Tab:** Goldene & Blaue Stunde, Chance auf Abend-/Morgenrot und Alpenglühen, Mondphase mit Auf-/Untergang und
